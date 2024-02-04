@@ -1,4 +1,8 @@
 pyenv('Version','C:\Users\apric\AppData\Local\Programs\Python\Python311\python.exe')
+clear classes; % 清除类定义的缓存
+mod = py.importlib.import_module('RegressionModels'); % 导入Python脚本模块
+py.importlib.reload(mod); % 重新加载Python脚本模块
+addpath('./')
 
 % j = 1;
 % for i = 1:9
@@ -48,4 +52,17 @@ pyenv('Version','C:\Users\apric\AppData\Local\Programs\Python\Python311\python.e
 % a = double(py.list([1,2,3,4]))
 
 
-a = py.test.echo("111")
+
+% years = double(py.RegressionModels.get_years())
+% nums = double(py.RegressionModels.get_nums())
+% test = py.RegressionModels.get_test()
+% plot(years,nums,'o','MarkerSize',5,'MarkerFaceColor','#Add8E6')
+% alpha = py.RegressionModels.get_alpha();
+% beta = py.RegressionModels.get_beta1();
+
+% x1 = [2000:0.01:2025];
+% y1 = beta * x1 + alpha;
+% hold on;
+% plot(x1,y1,'o','MarkerSize',1,'MarkerFaceColor','#Add8E6');
+[num,text,raw] = xlsread('./src/AHP Example.xlsx');
+AHP(num)

@@ -88,16 +88,16 @@ class Topsis:
 
 
 topsis = Topsis()
-ox = topsis.read_excel("Learning.xlsx", "含氧量(ppm)")
+ox = topsis.read_excel("src/Learning.xlsx", "含氧量(ppm)")
 ox = topsis.forward_type_transform(ox)
 
-ph = topsis.read_excel("Learning.xlsx", "PH值")
+ph = topsis.read_excel("src/Learning.xlsx", "PH值")
 ph = topsis.middle_type_transform(ph, 7)
 
-bacteria = topsis.read_excel("Learning.xlsx", "细菌总数(个/mL)")
+bacteria = topsis.read_excel("src/Learning.xlsx", "细菌总数(个/mL)")
 bacteria = topsis.backward_type_transform(bacteria)
 
-ppm = topsis.read_excel("Learning.xlsx", "植物性营养物量(ppm)")
+ppm = topsis.read_excel("src/Learning.xlsx", "植物性营养物量(ppm)")
 ppm = topsis.range_type_transform(ppm, [10, 20])
 # 至此，计算熵值E完毕，接下来计算权重w
 data = [ox, ph, bacteria, ppm]
@@ -115,7 +115,6 @@ print(result)
 import pandas as pd
 import openpyxl
 
-df = pd.read_excel("Learning.xlsx")
+df = pd.read_excel("src/Learning.xlsx")
 df["Result"] = result
-df.to_excel("Learning.xlsx", index=False)
-
+df.to_excel("src/Learning.xlsx", index=False)
